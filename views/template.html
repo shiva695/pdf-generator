@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+      integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <title>PDF DOCUMENT</title>
+  <style>
+    #table-parameters{
+      border: 2px solid black;
+      margin-top: 20px;
+      width: 100%;
+
+    }
+  </style>
+</head>
+<body>
+  <img src="data:image/png;base64,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" height="200" width="200" alt="">
+  <h2 style="color: rgb(122, 21, 55);margin-top: 30px; text-align: left;">REPORT CARD</h2>
+  
+  <h5 style="font-weight: 500;">Name :</h5>
+  <h5 style="font-weight: 500;">Age :</h5>
+  <h5 style="font-weight: 500;">City :</h5>
+
+  <div id="table-parameters">
+
+  <table style="width: 100%;margin: 20px; padding: 20px;">
+    <h2 style="color: rgb(122, 21, 55);margin: 20px;">Table parameters</h2>
+    <tr style="font-size: 20px; color: blue;">
+      <th>Activity Name</th>
+      <th>Score</th>
+      <th>Grade</th>
+      <th>Health Attributes</th>
+    </tr>
+    <tr style="font-size: 15px;">
+      <td>Squats</td>
+      <td>5</td>
+      <td>A</td>
+      <td>Lower body strength</td>
+    </tr>
+   
+  </table>
+
+  <h2 style="color: rgb(122, 21, 55);margin: 20px;">REMEDIAL MEASURES - SQUATS</h2>
+  <P style="margin: 20px;">You have excellent leg strength</P>
+  <ul>
+    <li>
+      Do regular excercise like jumping and skipping to maintain your leg strength
+    </li>
+    <li>Do Single leg bridge, bridge and squats atleast twice a week to mantain your strength</li>
+  </ul>
+  </div>
+
+  </body>
+</html>
